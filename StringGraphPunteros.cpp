@@ -13,6 +13,8 @@
 #include <string>
 #include <iterator>
 #include <tuple>
+#include <algorithm>
+#include <utility>
 
 using namespace std;
 
@@ -184,7 +186,7 @@ int main()
         cout << o->first << " size: " << o->second.size() << endl;
     }
 
-
+    
     return 0;
 }
 
