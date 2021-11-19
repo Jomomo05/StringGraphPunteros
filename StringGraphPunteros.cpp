@@ -16,6 +16,23 @@
 
 using namespace std;
 
+//Funcion que lee una palabra y devuelva todo
+//Antes de que encuentre el caracter ":"
+string process(string const& s) {
+    string::size_type pos = s.find(':');
+    if (pos != std::string::npos)
+    {
+        return s.substr(0, pos);
+    }
+    else
+    {
+        return s;
+    }
+}
+
+//Funcion que devuelve la tercera y cuarta palabra
+//De un string despues de removerle el texto antes del primer ":"
+//En el contexto de este programa, devolvera la Ip inicial y la Ip final
 tuple<string, string> returnThirdAndFourthWord(string str)
 {
     // word variable to store word
@@ -30,17 +47,19 @@ tuple<string, string> returnThirdAndFourthWord(string str)
     while (iss >> word) {
         if (contador == 3) {
             //cout << word << " ";
-            terceraP = word;
+            terceraP = process(word);
         }
         if (contador == 4) {
             //cout << word << endl;
-            cuartaP = word;
+            cuartaP = process(word);
         }
         contador++;
     }
     return { terceraP, cuartaP };
 }
 
+//Funcion que leera dos numeros separados por un espacio
+//Y los devolvera como Int
 tuple<int, int> ReturnFirstAndSecondNumber(string str) {
     string word;
     int contador = 0;
@@ -63,6 +82,7 @@ tuple<int, int> ReturnFirstAndSecondNumber(string str) {
     return { primeraP, segundaP };
 }
 
+//Funcion que regresa la primera palabra de cada linea
 string ReturnFirstWord(string str) {
     string word;
     int contador = 0;
@@ -80,12 +100,11 @@ string ReturnFirstWord(string str) {
     return word;
 }
 
-// Graph class represents a directed graph
-// using adjacency list representation
+//Implementacion de Grafo
+//Con lista de Adyacencia
 class Graph
 {
 public:
-    map<int, bool> visited;
     map<string, list<string>> adj;
 
     // function to add an edge to graph
