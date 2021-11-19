@@ -120,7 +120,7 @@ void Graph::addEdge(string v, string w)
 // Driver code
 int main()
 {
-    // Create a graph given in the above diagram
+    // Creacion del grafo
     Graph g;
 
     int firstNumber, secondNumber;
@@ -140,6 +140,7 @@ int main()
     tie(firstNumber, secondNumber) = ReturnFirstAndSecondNumber(Linea);
 
     //Leemos todos los Nodes y los anadimos a Graph
+    //Solo se avanza el archivo hasta la segunda parte
     while (std::getline(infile, Linea))
     {
         //Primera parte, Ips Solas.
