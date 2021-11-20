@@ -48,7 +48,7 @@ void sort(map<string, list<string>>& M)
     // Print the sorted value
     for (auto& it : A) {
 
-        cout << it.first << ' '
+        cout << it.first << " Fan Out:  "
             << it.second.size() << endl;
     }
 }
@@ -211,7 +211,7 @@ int main()
     cout << "Tamano actual ";
     cout << g.adj.size() << endl;
 
-    cout << "Iterar a traves de los componentes de la lista " << endl;
+    //cout << "Iterar a traves de los componentes de la lista " << endl;
 
     //Iterador g.adj
     //Devuelve todos los nodos
