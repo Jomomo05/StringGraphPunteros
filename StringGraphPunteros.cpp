@@ -22,8 +22,9 @@
 
 using namespace std;
 
-// Comparator function to sort pairs
-// according to second value
+//Funcion que devuelve un Booleano
+//Acerca de si el size del componente 1 es menor
+//Que el size del componente 2
 bool cmp(pair<string, list<string>>& a,
     pair<string, list<string>>& b)
 {
@@ -33,19 +34,18 @@ bool cmp(pair<string, list<string>>& a,
 void sort(map<string, list<string>>& M)
 {
 
-    // Declare vector of pairs
+    //Declaramos un vector para clonar la lista de valores
     vector<pair<string, list<string>> >A;
 
-    // Copy key-value pair from Map
-    // to vector of pairs
+    //Añadimos todos los valores al vector
     for (auto& it : M) {
         A.push_back(it);
     }
 
-    // Sort using comparator function
+    //Ordenamos mediante un sort
     sort(A.begin(), A.end(), cmp);
 
-    // Print the sorted value
+    //Imprimimos el vector ordenado
     for (auto& it : A) {
 
         cout << it.first << " Fan Out:  "
@@ -72,15 +72,15 @@ string process(string const& s) {
 //En el contexto de este programa, devolvera la Ip inicial y la Ip final
 tuple<string, string> returnThirdAndFourthWord(string str)
 {
-    // word variable to store word
+    //Variables
     string word;
     int contador = 0;
     string terceraP, cuartaP;
 
-    // making a string stream
+    // Declaramos StringStream
     stringstream iss(str);
 
-    // Read and print each word.
+    // Leemos la linea y obtenemos la 3ra y 4ta palabra
     while (iss >> word) {
         if (contador == 3) {
             //cout << word << " ";
@@ -101,10 +101,10 @@ tuple<int, int> ReturnFirstAndSecondNumber(string str) {
     string word;
     int contador = 0;
     int primeraP, segundaP;
-    // making a string stream
+    // Hacemos StringStream
     stringstream iss(str);
 
-    // Read and print each word.
+    // Leemos la linea y regresamos los primeros 2 numeros
     while (iss >> word) {
         if (contador == 0) {
             //cout << word << " ";
@@ -123,10 +123,10 @@ tuple<int, int> ReturnFirstAndSecondNumber(string str) {
 string ReturnFirstWord(string str) {
     string word;
     int contador = 0;
-    // making a string stream
+    // StringStream
     stringstream iss(str);
 
-    // Read and print each word.
+    // Devuelve la priemra palabra de cada linea
     while (iss >> word) {
         if (contador == 0) {
             //cout << word << endl;
@@ -207,9 +207,10 @@ int main()
             break;
         }
     }
-    
-    cout << "Tamano actual ";
-    cout << g.adj.size() << endl;
+    //Los comentarios debajo de este son pruebas del funcionamiento
+    // 
+    //cout << "Tamano actual ";
+    //cout << g.adj.size() << endl;
 
     //cout << "Iterar a traves de los componentes de la lista " << endl;
 
@@ -222,6 +223,8 @@ int main()
         cout << o->first << " size: " << o->second.size() << endl;
     }
     **/
+
+    //Ordena e imprime de manera ordenada el grafo (Fan-Out)
     cout << "Componentes Ordenados:  " << endl;
 
     sort(g.adj);
