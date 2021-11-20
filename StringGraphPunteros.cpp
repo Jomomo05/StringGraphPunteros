@@ -1,6 +1,10 @@
-// StringGraph.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
+//Actividad 4.3 Estructura de datos y algoritmos fundamentales
+//Hecho por: Jose Miguel Beltran Cinco A00227714
+//Arturo José Murra López A01236090
+//Eric Oyervides Espino A01570760
+//A 18 de Noviembre del 2021
+//El programa lee un archivo con Ips, las ordena dentro de un grafo
+//Y devuelve informacion sobre la posible Ip maestra
 #include <iostream>
 #include <list>
 #include <map>
@@ -17,6 +21,37 @@
 #include <utility>
 
 using namespace std;
+
+// Comparator function to sort pairs
+// according to second value
+bool cmp(pair<string, list<string>>& a,
+    pair<string, list<string>>& b)
+{
+    return a.second.size() < b.second.size();
+}
+
+void sort(map<string, list<string>>& M)
+{
+
+    // Declare vector of pairs
+    vector<pair<string, list<string>> >A;
+
+    // Copy key-value pair from Map
+    // to vector of pairs
+    for (auto& it : M) {
+        A.push_back(it);
+    }
+
+    // Sort using comparator function
+    sort(A.begin(), A.end(), cmp);
+
+    // Print the sorted value
+    for (auto& it : A) {
+
+        cout << it.first << ' '
+            << it.second.size() << endl;
+    }
+}
 
 //Funcion que lee una palabra y devuelva todo
 //Antes de que encuentre el caracter ":"
@@ -180,12 +215,17 @@ int main()
 
     //Iterador g.adj
     //Devuelve todos los nodos
+    /**
     map<string, list<string>>::iterator o;
     for (o = g.adj.begin(); o != g.adj.end(); ++o) {
-
+        
         cout << o->first << " size: " << o->second.size() << endl;
     }
+    **/
+    cout << "Componentes Ordenados:  " << endl;
 
+    sort(g.adj);
+   
     
     return 0;
 }
